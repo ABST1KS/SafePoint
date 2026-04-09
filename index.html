@@ -6,7 +6,7 @@
     <title>SafePoint | Emergency Navigation System</title>
     <style>
         :root {
-            --primary-color: #0B4F30; /* Темно-зеленый цвет со знака эвакуации */
+            --primary-color: #0B4F30; 
             --text-color: #333;
             --bg-color: #f8f9fa;
         }
@@ -33,6 +33,20 @@
             max-width: 800px;
             margin: 1rem auto;
             opacity: 0.9;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #fff;
+            color: var(--primary-color);
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .btn:hover {
+            background-color: #e9ecef;
         }
         .container {
             max-width: 1000px;
@@ -68,20 +82,7 @@
         img {
             max-width: 100%;
             border-radius: 8px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: background 0.3s;
-        }
-        .btn:hover {
-            background-color: #083b24;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         ul {
             padding-left: 1.5rem;
@@ -106,9 +107,7 @@
     <header>
         <h1>SafePoint</h1>
         <p>An offline-first interactive map and navigation system designed to guide residents of seismically active regions to safe zones during earthquakes.</p>
-        <div style="margin-top: 20px;">
-            <a href="presentation.pdf" class="btn" target="_blank">📄 View Pitch Deck (PDF)</a>
-        </div>
+        <a href="presentation.pdf" class="btn" target="_blank">📄 View Pitch Deck (PDF)</a>
     </header>
 
     <div class="container">
