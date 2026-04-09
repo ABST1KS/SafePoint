@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafePoint | Emergency Navigation System</title>
+    <style>
+        :root {
+            --primary-color: #0B4F30; /* Темно-зеленый цвет со знака эвакуации */
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 1rem auto;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        .stats-box {
+            background: #e9ecef;
+            padding: 1.5rem;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        ul {
+            padding-left: 1.5rem;
+        }
+        .team-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SafePoint</h1>
+        <p>An offline-first interactive map and navigation system designed to guide residents of seismically active regions to safe zones during earthquakes.</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="grid-2">
+            <div>
+                <h2>The Problem</h2>
+                <p>Kazakhstan is a seismically active region. Cities like Almaty, Taraz, and Shymkent are prone to frequent earthquakes. In critical moments, people need a simple, intuitive tool.</p>
+                <div class="stats-box">
+                    <strong>According to our survey among Almaty students:</strong>
+                    <ul>
+                        <li><strong>82%</strong> Do not know where to run during an earthquake.</li>
+                        <li><strong>18%</strong> Know where to run.</li>
+                    </ul>
+                </div>
+                <p><strong>Panic = Losses:</strong> When people do not know where to go, they get lost, panic, and make mistakes. There are no clear signs or instructions on where to go on the streets or in schools.</p>
+            </div>
+            <div>
+                <img src="images/sign.jpg" alt="Safe Evacuation Point Sign">
+            </div>
+        </section>
+
+        <section class="grid-2">
+            <div>
+                <img src="images/phone.jpg" alt="SafePoint App Mockup">
+            </div>
+            <div>
+                <h2>The Solution</h2>
+                <p><strong>SafePoint</strong> is a digital assistant that helps people quickly orient themselves. The application automatically determines the location and shows the nearest safe evacuation points: parks, stadiums, and open areas.</p>
+                <ul>
+                    <li>Builds a pedestrian route taking into account city infrastructure (streets, obstacles).</li>
+                    <li>Provides offline access to maps and instructions without internet.</li>
+                    <li>Forms a useful habit among residents — knowing where to go in case of danger.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>System Architecture & Engineering Design</h2>
+            <p>The primary engineering challenge is routing during emergencies when cellular networks fail. SafePoint uses an <strong>Offline-First architecture</strong>.</p>
+            <ul>
+                <li><strong>Technology Stack (MVP):</strong> React Native / Progressive Web App (PWA) with Service Workers for caching.</li>
+                <li><strong>Mapping:</strong> Mapbox GL or Leaflet.js utilizing local vector tiles downloaded in the background when the connection is stable.</li>
+                <li><strong>Local Database:</strong> SQLite / IndexedDB to store geospatial coordinates of safe zones and emergency action algorithms.</li>
+                <li><strong>Emergency Routing Flow:</strong> The app queries the local database via spatial indexes (R-Tree) to find nearest safe zones, filters out paths blocked by hazardous infrastructure, and calculates the optimal route locally using A* or Dijkstra algorithms.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Implementation Roadmap</h2>
+            <ol>
+                <li><strong>Customer Development:</strong> Conducted surveys to identify "blind spots" in emergency awareness.</li>
+                <li><strong>MVP Development:</strong> Designing the offline-first interactive map and stress-accessible UI.</li>
+                <li><strong>Field QA Testing:</strong> Planned simulation of an earthquake scenario with a focus group to test app usability under stress and validate the accuracy of routing algorithms.</li>
+            </ol>
+        </section>
+
+        <div class="team-note">
+            <p>Developed as a concept for the Samsung Solve for Tomorrow 2025 competition.</p>
+            <p><strong>Team 191</strong> | 191 School named after Gabiden Mustafin, Almaty.<br>
+            <em>Project led by Team Captain: Darkhan Zairov.</em></p>
+        </div>
+
+    </div>
+
+</body>
+</html>
