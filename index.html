@@ -72,6 +72,13 @@
             gap: 2rem;
             align-items: center;
         }
+        /* Сетка специально для трех экранов телефона */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
         .stats-box {
             background: #e9ecef;
             padding: 1.5rem;
@@ -130,18 +137,20 @@
             </div>
         </section>
 
-        <section class="grid-2">
-            <div>
-                <img src="images/phone.jpg" alt="SafePoint App Mockup">
-            </div>
-            <div>
-                <h2>The Solution</h2>
-                <p><strong>SafePoint</strong> is a digital assistant that helps people quickly orient themselves. The application automatically determines the location and shows the nearest safe evacuation points: parks, stadiums, and open areas.</p>
-                <ul>
-                    <li>Builds a pedestrian route taking into account city infrastructure (streets, obstacles).</li>
-                    <li>Provides offline access to maps and instructions without internet.</li>
-                    <li>Forms a useful habit among residents — knowing where to go in case of danger.</li>
-                </ul>
+        <section>
+            <h2>App Interface & Navigation</h2>
+            <p><strong>SafePoint</strong> is a digital assistant that helps people quickly orient themselves. The application automatically determines the location and shows the nearest safe evacuation points: parks, stadiums, and open areas.</p>
+            
+            <div class="grid-3">
+                <div>
+                    <img src="images/phone.jpg" alt="SafePoint Main Interface">
+                </div>
+                <div>
+                    <img src="images/app1.jpg" alt="SafePoint Navigation View">
+                </div>
+                <div>
+                    <img src="images/app2.jpg" alt="SafePoint Emergency Guide">
+                </div>
             </div>
         </section>
 
